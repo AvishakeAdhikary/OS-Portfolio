@@ -1,10 +1,15 @@
 <template>
-  <div>
+  <div class="photos">
     <!-- Thumbnail view -->
     <div v-if="!selectedPhoto" class="gallery">
-      <div v-for="photo in photos" :key="photo" @click="selectPhoto(photo)">
-        <img :src="photo" class="thumbnail" alt="Photo Thumbnail" />
-      </div>
+      <img
+        v-for="(photo, index) in photos"
+        :key="index"
+        :src="photo"
+        class="thumbnail"
+        alt="Photo Thumbnail"
+        @click="selectPhoto(photo)"
+      />
     </div>
 
     <!-- Full photo view -->
@@ -32,25 +37,43 @@ import photo9 from '@/assets/photos/photo9.jpg';
 import photo10 from '@/assets/photos/photo10.jpg';
 import photo11 from '@/assets/photos/photo11.jpg';
 import photo12 from '@/assets/photos/photo12.jpg';
+import photo13 from '@/assets/photos/photo13.jpg';
+import photo14 from '@/assets/photos/photo14.jpg';
+import photo15 from '@/assets/photos/photo15.jpg';
+import photo16 from '@/assets/photos/photo16.jpg';
+import photo17 from '@/assets/photos/photo17.jpg';
+import photo18 from '@/assets/photos/photo18.jpg';
+
+
 
 export default {
   name: 'Photos',
   data() {
     return {
-      photos: [],
+      photos: [
+        photo1,
+        photo2,
+        photo3,
+        photo4,
+        photo5,
+        photo6,
+        photo7,
+        photo8,
+        photo9,
+        photo10,
+        photo11,
+        photo12,
+        photo13,
+        photo14,
+        photo15,
+        photo16,
+        photo17,
+        photo18,
+      ],
       selectedPhoto: null,
     };
   },
-  mounted() {
-    this.getPhotosFromDirectory();
-  },
   methods: {
-    getPhotosFromDirectory() {
-      // Example photos to populate the 'photos' array
-      const fetchedPhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9 ,photo10, photo11, photo12];
-
-      this.photos = fetchedPhotos;
-    },
     selectPhoto(photo) {
       this.selectedPhoto = photo;
     },
@@ -70,29 +93,39 @@ export default {
 }
 
 .thumbnail {
-  width: 100px;
-  height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 800px;
+  max-height: 800px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   cursor: pointer;
+  margin: 10px;
 }
 
 .full-photo-container {
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
   height: 100%;
+  overflow: auto;
 }
 
 .full-photo-wrapper {
   position: relative;
   max-width: 100%;
-  max-height: calc(100vh - 100px); /* Subtract the height of the back button */
+  max-height: calc(100vh - 100px);
 }
 
 .full-photo {
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .back-button {
@@ -106,6 +139,9 @@ export default {
   border: none;
   color: black;
   font-size: 24px;
+  font-weight: bold;
   cursor: pointer;
+  border: 2px solid black;
+  border-radius: 50%;
 }
 </style>

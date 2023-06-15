@@ -73,7 +73,7 @@ export default {
 
 .drive-name {
   font-weight: bold;
-  color: #000;
+  color: white;
 }
 
 .drive-progress {
@@ -90,6 +90,6 @@ export default {
 
 .drive-progress-label {
   margin-top: 5px;
-  color: #000;
+  color: white;
 }
 </style>

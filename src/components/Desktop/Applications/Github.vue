@@ -335,7 +335,7 @@ export default
 {
   color: white;
   background-color: #0d1117;
-  overflow: scroll;
+  overflow: auto;
   height: 100%;
 }
 

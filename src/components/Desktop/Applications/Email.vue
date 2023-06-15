@@ -49,10 +49,10 @@ export default {
   max-width: 3840px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
+/*  border: 1px solid #ccc;*/
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: #000;
+  color: white;
   height: 100%;
 }
 
