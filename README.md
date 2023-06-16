@@ -2,7 +2,7 @@
 
 Welcome to OS Portfolio! This project is a customizable portfolio template built with Vue.js. It allows you to showcase your applications and organize them on a desktop-like interface.
 
-https://github.com/AvishakeAdhikary/OS-Portfolio/assets/32614982/96184296-1538-4816-aff5-b697984947a6
+https://github.com/AvishakeAdhikary/OS-Portfolio/assets/32614982/bdca6f60-0aaf-4579-83dc-a668c73ac73b
 
 ## Table of Contents
 
