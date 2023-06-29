@@ -164,7 +164,7 @@ export default {
         {
           title: '2021',
           cardTitle: 'Amity University Kolkata',
-          cardSubtitle: 'Undergraduate',
+          cardSubtitle: 'Postgraduate',
           cardDetailedText: 'I get into Amity University Kolkata, to pursue Master\'s in Computer Applications with core subjects like Java, Artificial Intelligence, Data Structures and Algorithms, Computer Graphics, Machine Learning and more.',
           media: {
             type: 'IMAGE',
@@ -188,7 +188,7 @@ export default {
         {
           title: '2023',
           cardTitle: 'Amity University Kolkata',
-          cardSubtitle: 'Undergraduate',
+          cardSubtitle: 'Postgraduate',
           cardDetailedText: 'I completed my mater\'s degree from Amity University Kolkata, sharing loads of memories with my friends for life.',
           media: {
             type: 'IMAGE',
