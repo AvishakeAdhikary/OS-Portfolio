@@ -2,7 +2,11 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
+// On GitHub Pages the site lives at /OS-Portfolio/, locally it lives at /.
+const BASE = process.env.VITE_BASE ?? (process.env.GITHUB_ACTIONS ? '/OS-Portfolio/' : '/');
+
 export default defineConfig({
+  base: BASE,
   plugins: [vue()],
   resolve: {
     alias: {
