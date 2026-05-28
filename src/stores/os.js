@@ -22,6 +22,7 @@ export const useOsStore = defineStore('os', {
       bootedOnce: false,
       now: new Date(),
       isGuest: false,
+      _shutdownRedirect: null,
       username: 'Avishake Adhikary',
       wallpaperIndex: saved.wallpaperIndex ?? 0,
       theme: saved.theme ?? 'dark',
@@ -70,6 +71,14 @@ export const useOsStore = defineStore('os', {
       this.spotlightOpen = false;
       this.contextMenu = null;
       this.setPhase('lock');
+    },
+    shutdown(redirectUrl) {
+      this.startMenuOpen = false;
+      this.quickPanelOpen = false;
+      this.spotlightOpen = false;
+      this.contextMenu = null;
+      this._shutdownRedirect = redirectUrl || null;
+      this.setPhase('shutdown');
     },
     setWallpaper(index) {
       this.wallpaperIndex = index;

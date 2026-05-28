@@ -424,7 +424,7 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: linear-gradient(180deg, #0a0d1f 0%, #060812 100%);
+  background: var(--bg-1);
   color: var(--text);
 }
 .mp-stage {
@@ -438,6 +438,7 @@ onBeforeUnmount(() => {
   inset: 0;
   width: 100%;
   height: 100%;
+  background: var(--bg-1);
 }
 .now-playing {
   position: absolute;
@@ -448,7 +449,7 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 14px;
   padding: 16px;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.65));
+  background: linear-gradient(180deg, transparent, var(--surface-strong));
 }
 .np-art {
   position: relative;
@@ -492,7 +493,7 @@ onBeforeUnmount(() => {
 .mp-controls {
   padding: 12px 16px;
   border-top: 1px solid var(--glass-border);
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--bg-2);
 }
 .seek-row {
   display: flex;
@@ -526,12 +527,13 @@ onBeforeUnmount(() => {
   display: grid;
   place-items: center;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--bg-3);
+  border: 1px solid var(--glass-border);
   transition: background 0.15s ease, transform 0.1s ease;
   position: relative;
 }
 .ctrl:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--accent-soft);
 }
 .ctrl.on {
   color: var(--accent);
@@ -578,7 +580,7 @@ onBeforeUnmount(() => {
 .viz-toggle {
   margin-left: auto;
   display: flex;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-3);
   border: 1px solid var(--glass-border);
   border-radius: 100px;
   padding: 2px;
@@ -598,7 +600,7 @@ onBeforeUnmount(() => {
 .mp-playlist {
   flex: 0 0 200px;
   border-top: 1px solid var(--glass-border);
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--bg-2);
   display: flex;
   flex-direction: column;
 }
@@ -624,7 +626,7 @@ onBeforeUnmount(() => {
   transition: background 0.15s ease;
 }
 .track:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--accent-soft);
 }
 .track.current {
   background: var(--accent-soft);

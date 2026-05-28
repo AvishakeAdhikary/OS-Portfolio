@@ -7,17 +7,21 @@
       </div>
       <div class="line current">
         <span class="prompt">{{ prompt }}</span>
-        <input
-          ref="inputEl"
-          v-model="input"
-          @keydown.enter="submit"
-          @keydown.up.prevent="historyUp"
-          @keydown.down.prevent="historyDown"
-          @keydown.tab.prevent="autocomplete"
-          autocomplete="off"
-          spellcheck="false"
-        />
-        <span class="caret"></span>
+        <span class="input-wrap">
+          <!-- size attr keeps the input exactly as wide as its text -->
+          <input
+            ref="inputEl"
+            v-model="input"
+            :size="Math.max(1, input.length)"
+            @keydown.enter="submit"
+            @keydown.up.prevent="historyUp"
+            @keydown.down.prevent="historyDown"
+            @keydown.tab.prevent="autocomplete"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <span class="caret" :class="{ typing: input.length > 0 }"></span>
+        </span>
       </div>
     </div>
   </div>
@@ -270,26 +274,38 @@ onMounted(() => {
 .current {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
+}
+/* wrapper that sits inline after the prompt */
+.input-wrap {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
 }
 .current input {
   background: transparent;
   border: none;
   outline: none;
-  flex: 1;
+  /* width is driven by the size attribute — no flex:1 */
   color: #f1f3ff;
   font: inherit;
   caret-color: transparent;
+  padding: 0;
+  margin: 0;
+  /* prevent browsers adding extra horizontal space */
+  min-width: 1px;
 }
 .caret {
   display: inline-block;
   width: 7px;
-  height: 14px;
+  height: 1.1em;
   background: var(--accent);
-  animation: blink 1s steps(2) infinite;
-  vertical-align: middle;
-  margin-left: -2px;
+  animation: blink 1.1s steps(2) infinite;
+  vertical-align: text-bottom;
+  flex-shrink: 0;
 }
 @keyframes blink {
-  to { opacity: 0; }
+  50%, 100% { opacity: 0; }
+  0%  { opacity: 1; }
 }
 </style>

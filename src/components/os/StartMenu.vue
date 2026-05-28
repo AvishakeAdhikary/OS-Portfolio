@@ -142,13 +142,8 @@ function signOut() {
 }
 
 function powerOff() {
-  window.open('https://www.linkedin.com/in/avishakeadhikary/', '_blank', 'noopener');
-  osStore.notify({
-    title: 'Opening LinkedIn',
-    message: 'Let’s connect on LinkedIn.',
-    icon: powerIcon,
-  });
   osStore.toggleStartMenu(false);
+  osStore.shutdown('https://www.linkedin.com/in/avishakeadhikary/');
 }
 
 function onTileContext(e, app) {

@@ -1,12 +1,15 @@
 <template>
   <div class="os-root" :style="osStyle" :data-phase="osStore.phase">
-    <BootScreen v-if="osStore.phase === 'boot'" />
-    <LockScreen v-else-if="osStore.phase === 'lock'" @unlock="goToLogin" />
-    <LoginScreen v-else-if="osStore.phase === 'login'" />
-    <Desktop v-else />
-    <Spotlight v-if="osStore.spotlightOpen && osStore.phase === 'desktop'" />
-    <ContextMenu v-if="osStore.contextMenu" />
-    <NotificationCenter />
+    <ShutdownScreen v-if="osStore.phase === 'shutdown'" />
+    <template v-else>
+      <BootScreen v-if="osStore.phase === 'boot'" />
+      <LockScreen v-else-if="osStore.phase === 'lock'" @unlock="goToLogin" />
+      <LoginScreen v-else-if="osStore.phase === 'login'" />
+      <Desktop v-else />
+      <Spotlight v-if="osStore.spotlightOpen && osStore.phase === 'desktop'" />
+      <ContextMenu v-if="osStore.contextMenu" />
+      <NotificationCenter />
+    </template>
   </div>
 </template>
 
@@ -22,6 +25,7 @@ import Desktop from '@/components/os/Desktop.vue';
 import Spotlight from '@/components/os/Spotlight.vue';
 import ContextMenu from '@/components/os/ContextMenu.vue';
 import NotificationCenter from '@/components/os/NotificationCenter.vue';
+import ShutdownScreen from '@/components/os/ShutdownScreen.vue';
 
 const osStore = useOsStore();
 const windowsStore = useWindowsStore();
